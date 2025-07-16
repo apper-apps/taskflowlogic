@@ -37,8 +37,9 @@ const Sidebar = ({
         {/* Categories */}
         <div>
           <h3 className="text-sm font-medium text-gray-900 mb-3">Categories</h3>
-          <div className="space-y-2">
+<div className="space-y-2">
             <CategoryChip
+              key="all-tasks"
               category={{ name: "All Tasks", color: "bg-gray-400" }}
               isActive={selectedCategory === "all"}
               onClick={() => onCategoryChange("all")}
