@@ -45,12 +45,12 @@ const Sidebar = ({
               onClick={() => onCategoryChange("all")}
               className="w-full justify-start"
             />
-            {categories.map((category) => (
+{categories.map((category) => (
               <CategoryChip
-                key={category.id}
+                key={category.Id}
                 category={category}
-                isActive={selectedCategory === category.id}
-                onClick={() => onCategoryChange(category.id)}
+                isActive={selectedCategory === category.Id}
+                onClick={() => onCategoryChange(category.Id)}
                 taskCount={category.taskCount}
                 className="w-full justify-start"
               />
