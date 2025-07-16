@@ -143,14 +143,14 @@ const TaskForm = ({
           required
           error={errors.category}
         >
-          <Select
+<Select
             value={formData.category}
             onChange={(e) => handleChange("category", e.target.value)}
             error={!!errors.category}
           >
             <option value="">Select category...</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.name}>
+            {categories.map((category, index) => (
+              <option key={category.id || category.Name || index} value={category.name}>
                 {category.name}
               </option>
             ))}
