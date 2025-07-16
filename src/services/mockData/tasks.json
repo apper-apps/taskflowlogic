@@ -1,0 +1,112 @@
+[
+  {
+    "Id": 1,
+    "title": "Complete project proposal",
+    "description": "Finish the quarterly project proposal and send it to the client for review",
+    "priority": "high",
+    "dueDate": "2024-12-20T14:00:00.000Z",
+    "category": "Work",
+    "completed": false,
+    "createdAt": "2024-12-15T09:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 2,
+    "title": "Team meeting preparation",
+    "description": "Prepare agenda and slides for the upcoming team meeting",
+    "priority": "medium",
+    "dueDate": "2024-12-19T10:00:00.000Z",
+    "category": "Work",
+    "completed": false,
+    "createdAt": "2024-12-15T10:30:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 3,
+    "title": "Buy groceries",
+    "description": "Purchase weekly groceries including fresh vegetables and fruits",
+    "priority": "low",
+    "dueDate": "2024-12-18T16:00:00.000Z",
+    "category": "Personal",
+    "completed": false,
+    "createdAt": "2024-12-15T11:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 4,
+    "title": "Review code changes",
+    "description": "Review and approve the latest code changes from the development team",
+    "priority": "high",
+    "dueDate": "2024-12-17T17:00:00.000Z",
+    "category": "Development",
+    "completed": false,
+    "createdAt": "2024-12-15T12:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 5,
+    "title": "Update project documentation",
+    "description": "Update the project documentation with the latest changes and requirements",
+    "priority": "medium",
+    "dueDate": "2024-12-21T12:00:00.000Z",
+    "category": "Documentation",
+    "completed": false,
+    "createdAt": "2024-12-15T13:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 6,
+    "title": "Schedule dentist appointment",
+    "description": "Call the dentist office to schedule a routine checkup",
+    "priority": "low",
+    "dueDate": "2024-12-22T09:00:00.000Z",
+    "category": "Health",
+    "completed": false,
+    "createdAt": "2024-12-15T14:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 7,
+    "title": "Finalize budget report",
+    "description": "Complete the quarterly budget report and submit to finance team",
+    "priority": "high",
+    "dueDate": "2024-12-19T15:00:00.000Z",
+    "category": "Finance",
+    "completed": true,
+    "createdAt": "2024-12-14T08:00:00.000Z",
+    "completedAt": "2024-12-15T14:30:00.000Z"
+  },
+  {
+    "Id": 8,
+    "title": "Plan weekend trip",
+    "description": "Research and plan activities for the upcoming weekend getaway",
+    "priority": "low",
+    "dueDate": "2024-12-20T20:00:00.000Z",
+    "category": "Personal",
+    "completed": false,
+    "createdAt": "2024-12-15T15:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 9,
+    "title": "Fix login bug",
+    "description": "Investigate and fix the authentication issue reported by users",
+    "priority": "high",
+    "dueDate": "2024-12-17T11:00:00.000Z",
+    "category": "Development",
+    "completed": false,
+    "createdAt": "2024-12-15T16:00:00.000Z",
+    "completedAt": null
+  },
+  {
+    "Id": 10,
+    "title": "Workout session",
+    "description": "Complete 45-minute cardio and strength training workout",
+    "priority": "medium",
+    "dueDate": "2024-12-17T18:00:00.000Z",
+    "category": "Health",
+    "completed": false,
+    "createdAt": "2024-12-15T17:00:00.000Z",
+    "completedAt": null
+  }
+]
