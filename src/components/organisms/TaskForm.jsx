@@ -127,14 +127,14 @@ const TaskForm = ({
           required
           error={errors.priority}
         >
-          <Select
+<Select
             value={formData.priority}
             onChange={(e) => handleChange("priority", e.target.value)}
             error={!!errors.priority}
           >
-            <option value="low">Low Priority</option>
-            <option value="medium">Medium Priority</option>
-            <option value="high">High Priority</option>
+            <option key="low" value="low">Low Priority</option>
+            <option key="medium" value="medium">Medium Priority</option>
+            <option key="high" value="high">High Priority</option>
           </Select>
         </FormField>
         
