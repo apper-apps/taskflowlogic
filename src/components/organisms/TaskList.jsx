@@ -24,10 +24,10 @@ const TaskList = ({
   
   return (
     <div className="space-y-4">
-      <AnimatePresence mode="popLayout">
-        {tasks.map((task) => (
+<AnimatePresence mode="popLayout">
+        {tasks.map((task, index) => (
           <motion.div
-            key={task.id}
+            key={task.Id || `task-${index}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
