@@ -225,6 +225,131 @@ class TaskService {
     } catch (error) {
       console.error("Error deleting task:", error);
       throw error;
+}
+  }
+
+  async bulkUpdate(taskIds, updateData) {
+    try {
+      const records = taskIds.map(id => ({
+        Id: parseInt(id),
+        ...updateData
+      }));
+
+      const params = {
+        records: records
+      };
+
+      const response = await this.apperClient.updateRecord("task", params);
+
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        throw new Error(response.message);
+      }
+
+      if (response.results) {
+        const successfulRecords = response.results.filter(result => result.success);
+        const failedRecords = response.results.filter(result => !result.success);
+
+        if (failedRecords.length > 0) {
+          console.error(`Failed to update ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          
+          failedRecords.forEach(record => {
+            record.errors?.forEach(error => {
+              toast.error(`${error.fieldLabel}: ${error.message}`);
+            });
+            if (record.message) toast.error(record.message);
+          });
+        }
+
+        return successfulRecords.map(result => result.data);
+      }
+
+      return [];
+    } catch (error) {
+      console.error("Error bulk updating tasks:", error);
+      throw error;
+    }
+  }
+
+  async bulkDelete(taskIds) {
+    try {
+      const params = {
+        RecordIds: taskIds.map(id => parseInt(id))
+      };
+
+      const response = await this.apperClient.deleteRecord("task", params);
+
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        throw new Error(response.message);
+      }
+
+      if (response.results) {
+        const successfulDeletions = response.results.filter(result => result.success);
+        const failedDeletions = response.results.filter(result => !result.success);
+
+        if (failedDeletions.length > 0) {
+          console.error(`Failed to delete ${failedDeletions.length} records:${JSON.stringify(failedDeletions)}`);
+          
+          failedDeletions.forEach(record => {
+            if (record.message) toast.error(record.message);
+          });
+        }
+
+        return successfulDeletions.length === taskIds.length;
+      }
+
+      return false;
+    } catch (error) {
+      console.error("Error bulk deleting tasks:", error);
+      throw error;
+    }
+  }
+
+  async bulkComplete(taskIds) {
+    try {
+      const records = taskIds.map(id => ({
+        Id: parseInt(id),
+        completed: "true",
+        completed_at: new Date().toISOString()
+      }));
+
+      const params = {
+        records: records
+      };
+
+      const response = await this.apperClient.updateRecord("task", params);
+
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        throw new Error(response.message);
+      }
+
+      if (response.results) {
+        const successfulRecords = response.results.filter(result => result.success);
+        const failedRecords = response.results.filter(result => !result.success);
+
+        if (failedRecords.length > 0) {
+          console.error(`Failed to complete ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          
+          failedRecords.forEach(record => {
+            record.errors?.forEach(error => {
+              toast.error(`${error.fieldLabel}: ${error.message}`);
+            });
+            if (record.message) toast.error(record.message);
+          });
+        }
+
+        return successfulRecords.map(result => result.data);
+      }
+
+      return [];
+    } catch (error) {
+      console.error("Error bulk completing tasks:", error);
+      throw error;
     }
   }
 }

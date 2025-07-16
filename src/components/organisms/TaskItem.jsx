@@ -1,18 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
-import Checkbox from "@/components/atoms/Checkbox";
-import Button from "@/components/atoms/Button";
-import PriorityBadge from "@/components/molecules/PriorityBadge";
-import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
 import { formatDate, getDueDateColor, isOverdue } from "@/utils/dateHelpers";
+import { cn } from "@/utils/cn";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import Checkbox from "@/components/atoms/Checkbox";
+import PriorityBadge from "@/components/molecules/PriorityBadge";
 
 const TaskItem = ({ 
   task, 
   onToggleComplete, 
   onEdit, 
-  onDelete 
+  onDelete,
+  showSelection = false,
+  isSelected = false,
+  onSelect = () => {}
 }) => {
   const handleToggleComplete = () => {
     onToggleComplete(task.id);
@@ -33,9 +36,19 @@ const TaskItem = ({
         task.completed && "opacity-75"
       )}
       whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.99 }}
+whileTap={{ scale: 0.99 }}
     >
       <div className="flex items-start gap-3">
+        {showSelection && (
+          <div className="flex-shrink-0 mt-1">
+            <Checkbox
+              checked={isSelected}
+              onChange={onSelect}
+              className="transition-all duration-300"
+            />
+          </div>
+        )}
+        
         <div className="flex-shrink-0 mt-1">
           <Checkbox
             checked={task.completed}
@@ -43,7 +56,6 @@ const TaskItem = ({
             className="transition-all duration-300"
           />
         </div>
-        
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between">
             <div className="flex-1">

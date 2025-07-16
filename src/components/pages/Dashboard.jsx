@@ -196,12 +196,13 @@ const Dashboard = () => {
                  categories.find(c => c.id === selectedCategory)?.name || "Tasks"}
               </h2>
               
-              <TaskList
+<TaskList
                 tasks={sortedTasks}
                 onToggleComplete={handleToggleComplete}
                 onEditTask={handleEditTask}
                 onDeleteTask={handleDeleteTask}
                 onAddTask={handleAddTask}
+                categories={categories}
               />
             </div>
           </div>
